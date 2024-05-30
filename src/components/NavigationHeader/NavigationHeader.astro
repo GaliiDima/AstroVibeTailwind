@@ -1,0 +1,43 @@
+---
+import logo from "@assets/Logo.svg";
+import menu from "@assets/menu.svg";
+
+interface Props {
+  class: string;
+}
+
+const { class: className }: Props = Astro.props;
+
+const HEADER_LINKS = [
+  { href: "#features", label: "Features" },
+  { href: "#benefits", label: "Benefits" },
+  { href: "#membership", label: "Premium" },
+  { href: "#download", label: "Download" },
+];
+---
+
+<nav class:list={["flex justify-between items-center w-full", className]}>
+  <div class="flex items-center justify-center gap-2">
+    <img src={logo.src} alt="logo" class="h-auto" />
+    <p class="text-sm md:text-2xl">AstroVibe</p>
+  </div>
+  <div class="flex items-center">
+    <ul class="gap-6 hidden md:flex">
+      {
+        HEADER_LINKS.map((link) => (
+          <li>
+            <a href={link.href} class="text-text-grey text-base">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href="#menu"
+      class="flex md:hidden bg-center bg-no-repeat w-6 h-6"
+      style=`background-image: url(${menu.src});`
+    >
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,103 @@
+---
+import Footer from "@components/Footer/Footer.astro";
+import NavigationHeader from "@components/NavigationHeader/NavigationHeader.astro";
+import NavigationMenu from "@components/NavigationMenu/NavigationMenu.astro";
+import PrivacyArticle from "@components/PrivacyArticle/PrivacyArticle.astro";
+import TypographyTitle from "@components/TypographyTitle/TypographyTitle.astro";
+import Layout from "@layouts/Layout.astro";
+
+const ARTICLES_LIST = [
+  {
+    title: "Sensortronic Ltd.",
+    content: [
+      "is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by AstroVibe App.",
+    ],
+  },
+  {
+    title: "Information Collection",
+    content: [
+      "We collect information that you provide directly to us when you use our app. The types of personal information we collect include:",
+      [
+        "Phone Number: Used for account registration, verification, and communication purposes.",
+        "Name (Alias): You may choose to provide a pseudonym instead of your real name for your user profile.",
+        "Date and Time of Birth: Used to calculate your horoscope sign.",
+      ],
+    ],
+  },
+  {
+    title: "Use of Information",
+    content: [
+      "We use the information we collect for several purposes, including:",
+      [
+        "To create and manage your account.",
+        "To communicate with you about our services, including verification messages and important updates.",
+        "To enhance our app's functionality and user personalization.",
+      ],
+    ],
+  },
+  {
+    title: "Sharing of Information",
+    content: [
+      "We do not share your personal information with third parties except in the following cases:",
+      [
+        "If required by law, such as to comply with a subpoena or similar legal process.",
+        "When we believe in good faith that disclosure is necessary to protect our rights, your safety, or the safety of others, investigate fraud, or respond to a government request.",
+      ],
+    ],
+  },
+  {
+    title: "Security",
+    content: [
+      "We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction.",
+    ],
+  },
+  {
+    title: "Your Privacy Rights",
+    content: [
+      "You have the right to delete your personal information at any time by deleting your application account. This process is irreversible.",
+    ],
+  },
+  {
+    title: "Changes to This Policy",
+    content: [
+      "We may update this Privacy Policy from time to time. If we make material changes, we will notify you by revising the date at the top of the policy and, in some cases, we may provide you with additional notice (such as adding a statement to our homepage or sending you a notification).",
+    ],
+  },
+  {
+    title: "Contact Us",
+    content: [
+      "If you have any questions about this Privacy Policy, please contact us at",
+    ],
+    hasEmail: "hello@sensortronic.net.",
+  },
+];
+---
+
+<Layout title="AstroVibe">
+  <div class="bg-insights-bg scroll-smooth overflow-x-hidden" id="TOS">
+    <div class="max-w-cw-1440 mx-auto my-0">
+      <div class="px-4 pb-[70px] md:pb-[120px] md:py-5 md:px-[60px]">
+        <NavigationHeader class="mb-[70px] md:mb-[120px]" />
+        <NavigationMenu />
+        <main class="flex flex-col gap-6">
+          <TypographyTitle> Privacy Policy </TypographyTitle>
+
+          <p class="text-tos-text-color text-14 leading-24">
+            Effective Date: April 10th, 2024
+          </p>
+
+          {
+            ARTICLES_LIST.map((article) => (
+              <PrivacyArticle
+                title={article.title}
+                content={article.content}
+                hasEmail={article.hasEmail}
+              />
+            ))
+          }
+        </main>
+      </div>
+    </div>
+    <Footer />
+  </div>
+</Layout>

@@ -1,0 +1,53 @@
+---
+import TypographyTitle from "@components/TypographyTitle/TypographyTitle.astro";
+import BenefitItem from "./BenefitItem.astro";
+
+import benefitsBg_desktop from "@assets/app-benefits-image_desktop.png";
+import benefitsBg_tablet from "@assets/app-benefits-image_mobile.png";
+
+const BENEFITS_LIST = [
+  "Deep personalization for a unique celestial guide.",
+  "Insightful compatibility checks to guide your relationships.",
+  "Elegant, user-friendly app design for an immersive experience.",
+  "Free access to daily readings, with premium features for those seeking a deeper connection.",
+];
+---
+
+<section class="bg-benefits-bg relative" id="benefits">
+  <div class="max-w-cw-1440 mx-auto my-0">
+    <div
+      class="pb-[50px] cs-500:pb-[60px] justify-center items-center flex flex-col cs-1440:py-[100px] cs-1440:px-[280px] cs-1440:relative"
+    >
+      <TypographyTitle
+        tag="h2"
+        class="text-center absolute top-[70px] md:top-[35px] px-[10px] py-0 cs-1440:self-center cs-1440:max-w-[660px] cs-1440:text-center cs-1440:mb-[155px] cs-1440:relative cs-1440:top-0 cs-1440:px-0"
+      >
+        Why AstroVibe Stands Out in the Galaxy
+      </TypographyTitle>
+
+      <div
+        class="relative hidden cs-1440:block cs-1440:absolute cs-1440:top-0 cs-1440:right-[-400px]"
+      >
+        <img src={benefitsBg_desktop.src} alt="phones" />
+      </div>
+
+      <div class="relative hidden cs-500:block cs-500:w-full cs-1440:hidden">
+        <img
+          src={benefitsBg_desktop.src}
+          alt="phones"
+          class="cs-500:object-cover cs-500:w-full"
+        />
+      </div>
+
+      <div class="relative block w-full cs-500:hidden">
+        <img src={benefitsBg_tablet.src} alt="phones" class="w-full" />
+      </div>
+
+      <ul
+        class="px-[30px] cs-500:px-5 flex flex-col gap-[30px] max-w-[460px] relative z-20 cs-1440:self-start"
+      >
+        {BENEFITS_LIST.map((benefit) => <BenefitItem text={benefit} />)}
+      </ul>
+    </div>
+  </div>
+</section>

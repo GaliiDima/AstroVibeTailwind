@@ -1,0 +1,17 @@
+---
+import googlePlayBadge from "@assets/google-play-budge.svg";
+import appStoreBadge from "@assets/app-store-budge.svg";
+
+const { variant } = Astro.props;
+---
+
+<button
+  class="relative border-none appearance-none outline-none px-10 py-[17px] rounded-lg bg-white min-w-[288px] flex items-center justify-center"
+>
+  <img
+    src={variant === "App Store" ? appStoreBadge.src : googlePlayBadge.src}
+    alt={variant === "App Store"
+      ? "Download on the App Store"
+      : "Get it on Google Play"}
+  />
+</button>

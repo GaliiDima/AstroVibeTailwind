@@ -1,0 +1,31 @@
+---
+import ListItem from "@components/ListItem/ListItem.astro";
+
+interface Props {
+  title: string;
+  content: (string | string[])[];
+  hasEmail?: string;
+}
+
+const { title, content, hasEmail }: Props = Astro.props;
+---
+
+<article class="flex flex-col gap-4">
+  <h2 class="text-16 font-medium leading-24">{title}</h2>
+  {
+    content.map((article) =>
+      Array.isArray(article) ? (
+        <ul class="flex flex-col gap-3 pl-5">
+          {article.map((text) => (
+            <ListItem text={text} />
+          ))}
+        </ul>
+      ) : (
+        <p class="text-tos-text-color text-14 leading-20">
+          {article}
+          {hasEmail && <span class="underline">{hasEmail}</span>}
+        </p>
+      )
+    )
+  }
+</article>

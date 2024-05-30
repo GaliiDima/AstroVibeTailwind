@@ -1,0 +1,82 @@
+---
+import TableHeadCell from "./TableHeadCell.astro";
+import TableRow from "@components/TableRow/TableRow.astro";
+import TypographyTitle from "@components/TypographyTitle/TypographyTitle.astro";
+import Button from "@components/Button/Button.astro";
+
+import footerBg from "@assets/footer-bg.png";
+
+const FEATURES_LIST = [
+  { feature: "All 12 signs’ characteristics", free: true, premium: true },
+  { feature: "Daily Horoscope", free: true, premium: true },
+  { feature: "Compatibility", free: true, premium: true },
+  { feature: "Personalized Daily Horoscope", free: false, premium: true },
+  { feature: "Personalized Compatibility", free: false, premium: true },
+  { feature: "Add Free Access to All Content", free: false, premium: true },
+];
+---
+
+<section class="bg-insights-bg" id="membership">
+  <div class="max-w-cw-1440 mx-auto my-0">
+    <div
+      class="pb-[50px] pt-[70px] px-2 md:px-5 md:py-[100px] flex flex-col items-center"
+    >
+      <h3
+        class="text-center mb-[50px] text-22 leading-28 font-medium md:text-[32px] md:leading-[44px] md:mb-[70px]"
+      >
+        Free vs Premium Plan
+      </h3>
+
+      <div
+        class="text-white rounded-lg overflow-hidden max-w-[880px] w-full mb-[100px] md:mb-[120px]"
+      >
+        <table class="w-full border-collapse bg-benefits-bg">
+          <thead>
+            <tr>
+              <TableHeadCell>Feature</TableHeadCell>
+              <TableHeadCell class="border-l text-center">Free</TableHeadCell>
+              <TableHeadCell class="border-l text-center">Premium</TableHeadCell
+              >
+            </tr>
+          </thead>
+          <tbody>
+            {
+              FEATURES_LIST.map((feature) => (
+                <TableRow
+                  feature={feature.feature}
+                  free={feature.free}
+                  premium={feature.premium}
+                />
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        class="flex flex-col items-center justify-center text-center"
+        id="download"
+      >
+        <TypographyTitle tag="h2" class="mb-5 md:mb-[30px]">
+          Join a community of star seekers.
+        </TypographyTitle>
+
+        <p class="mb-10 text-16 leading-26 md:text-2xl md:mb-12 text-text-grey">
+          Download AstroVibe and let the cosmos guide your journey.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-[22px]">
+          <Button variant="Google Play" />
+          <Button variant="App Store" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relative pb-[96.5%] cs-500:pb-[54.5%] cs-1600:pb-[40.5%]">
+    <img
+      src={footerBg.src}
+      alt="membership background"
+      class="absolute top-0 left-0 w-full h-full object-cover"
+    />
+  </div>
+</section>

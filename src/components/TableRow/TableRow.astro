@@ -1,0 +1,30 @@
+---
+import checked from "@assets/check.svg";
+import TableCell from "@components/Main/MembershipOptions/TableCell.astro";
+
+interface Props {
+  feature: string;
+  free: boolean;
+  premium: boolean;
+}
+
+const { feature, free, premium }: Props = Astro.props;
+---
+
+<tr>
+  <TableCell>{feature}</TableCell>
+  <TableCell class="border-l text-center">
+    {
+      free && (
+        <img src={checked.src} alt="checked" class="w-6 h-6 mx-auto my-0" />
+      )
+    }
+  </TableCell>
+  <TableCell class="border-l text-center">
+    {
+      premium && (
+        <img src={checked.src} alt="checked" class="w-6 h-6 mx-auto my-0" />
+      )
+    }
+  </TableCell>
+</tr>

@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/Layout.astro";
+import NavigationMenu from "@components/NavigationMenu/NavigationMenu.astro";
+import Header from "@components/Header/Header.astro";
+import AppBenefits from "@components/Main/AppBenefits/AppBenefits.astro";
+import DaliyInsights from "@components/Main/DailyInsights/DailyInsights.astro";
+import MembershipOptions from "@components/Main/MembershipOptions/MembershipOptions.astro";
+import Footer from "@components/Footer/Footer.astro";
+---
+
+<Layout title="AstroVibe">
+  <div class="overflow-x-hidden">
+    <Header />
+    <NavigationMenu />
+    <main id="main">
+      <DaliyInsights />
+      <AppBenefits />
+      <MembershipOptions />
+    </main>
+    <Footer />
+  </div>
+</Layout>

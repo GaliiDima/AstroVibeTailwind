@@ -1,0 +1,41 @@
+---
+import logo from "@assets/Logo.svg";
+
+const NAVIGATION_MENU_LINKS = [
+  { href: "#features", label: "Features" },
+  { href: "#benefits", label: "Benefits" },
+  { href: "#membership", label: "Premium" },
+  { href: "#download", label: "Download" },
+];
+---
+
+<nav
+  class="fixed z-[1000] top-0 left-0 right-0 bg-benefits-bg -translate-x-full target:translate-x-0 custom-transition"
+  id="menu"
+>
+  <div>
+    <div class="relative h-screen p-4 flex flex-col">
+      <div class="flex justify-between items-center mb-[42px]">
+        <div class="flex items-center justify-center gap-2">
+          <img src={logo.src} alt="logo" />
+          <p class="text-14">AstroVibe</p>
+        </div>
+        <a href="#" class="h-6 w-6 bg-no-repeat bg-close"></a>
+      </div>
+      <ul class="flex flex-col self-end text-right gap-6">
+        {
+          NAVIGATION_MENU_LINKS.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-text-grey text-14 leading-24 tracking-0.25"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

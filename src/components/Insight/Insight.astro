@@ -1,0 +1,22 @@
+---
+interface Props {
+  text: string;
+  image: string;
+  reversed: boolean;
+}
+
+const { text, image, reversed }: Props = Astro.props;
+---
+
+<article
+  class={`flex flex-col items-center gap-8 md:gap-20 ${reversed ? "md:flex-row-reverse" : ""} md:flex-row`}
+>
+  <div class="mt-0 md:mt-16 text-text-grey text-base md:text-2xl">
+    {text}
+  </div>
+  <img
+    src={image}
+    class="relative z-10 w-[180px] h-[367px] md:w-full md:h-full"
+    alt="insight"
+  />
+</article>
